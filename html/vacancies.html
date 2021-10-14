@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PIN Official Shop</title>
+    <link rel="stylesheet" href="../pin.css">
+    <link rel="icon" href="../img/favicon.png">
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div class="padding-top card stickytop" style="height:40px; display:grid; grid-template:100% / repeat(4,25%);">
+      <a href="../index.html" class="size32"><b>ПІН</b></a>
+      <a href="../index.html" class="size24 margin-auto">Про "ПІН"</a>
+      <a href="shop.html" class="size24 margin-auto">Магазин</a>
+      <a href="vacancies.html" class="size24 margin-auto">Вакансії</a>
+    </div>
+
+    <div id="setka">
+      <h1 class="center">Нам потрібні роботящі руки!</h1>
+        <div style="display:grid; grid-template: 100% / 20% 1fr 20%; padding:24px;">
+          <div id="root" style="grid-column: 2 / 2;">
+      
+          </div>
+        </div>
+    </div>
+
+    <footer class="padding-top card" style="background-color:#000000; display:flex; justify-content:center; height:50px;">
+      <p style="color:#ffffff; text-align:center; padding-right:10px; padding-left:10px;">©2021</p>
+      <a href="https://www.instagram.com/pin_shop_lutsk/"><img src="../img/ig.png" class="footerimage"></a>
+      <a href="https://t.me/pin_shop_lutsk"><img src="../img/tg.png" class="footerimage"></a>
+    </footer>
+
+    <script type="text/babel">
+      class Vacancy extends React.Component {
+        render() {
+          return (
+            <div className="card vacancy">
+              <img src={'../img/' + this.props.imgname} className="vacancy-pic" />
+              <h2 className="vacancy-text">{this.props.vtitle}</h2>
+              <a href="https://t.me/pin_shop_lutsk" className="block cool-button margin-auto vacancy-button">ВІДГУКНУТИСЯ</a>
+            </div>
+          );
+        }
+      }
+
+      function VacancyList() {
+        return (
+          <div>
+            <Vacancy imgname="sew.jpg" vtitle="ВИШИВАЛЬНИК" />
+            <Vacancy imgname="tai.jpg" vtitle="КРАВЕЦЬ" />
+          </div>
+        );
+      }
+
+      ReactDOM.render(
+        <VacancyList />,
+        document.getElementById('root')
+      );
+    </script>
+
+    <script>
+      window.onload = function() {
+        setka.style.height = (document.documentElement.scrollHeight - 40 - 100) + 'px';
+      }
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PIN Official Shop</title>
+    <link rel="stylesheet" href="../pin.css">
+    <link rel="icon" href="../img/favicon.png">
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div class="padding-top card stickytop" style="height:40px; display:grid; grid-template:100% / repeat(4,25%);">
+      <a href="../index.html" class="size32"><b>ПІН</b></a>
+      <a href="../index.html" class="size24 margin-auto">Про "ПІН"</a>
+      <a href="shop.html" class="size24 margin-auto">Магазин</a>
+      <a href="vacancies.html" class="size24 margin-auto">Вакансії</a>
+    </div>
+    
+    <div id="setka">
+      <div id="root" class="padding24 card">
+
+      </div>
+    </div>
+
+    <footer class="padding-top card" style="background-color:#000000; display:flex; justify-content:center; height:50px;">
+      <p style="color:#ffffff; text-align:center; padding-right:10px; padding-left:10px;">©2021</p>
+      <a href="https://www.instagram.com/pin_shop_lutsk/"><img src="../img/ig.png" class="footerimage"></a>
+      <a href="https://t.me/pin_shop_lutsk"><img src="../img/tg.png" class="footerimage"></a>
+    </footer>
+
+    <script type="text/babel">
+      class Item extends React.Component {
+        render() {
+          return (
+            <li className="button block padding">
+              <a href={'shop/' + this.props.filename}>
+                <img src={'shop/img/' + this.props.imgname} />
+                <p className="size20 center"><b>{this.props.title}</b></p>
+                <p className="center"><b>{this.props.price + ' ₴'}</b></p>
+              </a>
+            </li>
+          );
+        }
+      }
+
+      function ItemList() {
+        return (
+          <ul className="flexible padding24">
+            <Item filename="tee_small.html" imgname="small.jpg" title="ФУТБОЛКА ПІН БІЛА" price="300" />
+            <Item filename="tee_oversize.html" imgname="oversize.jpg" title="ФУТБОЛКА ПІН ЧОРНА ОВЕРСАЙЗ" price="300" />
+          </ul>
+        );
+      }
+
+      ReactDOM.render(
+        <ItemList />,
+        document.getElementById('root')
+      );
+    </script>
+
+    <script>
+      window.onload = function() {
+        setka.style.height = (document.documentElement.scrollHeight - 40 - 50) + 'px';
+      }
+    </script>
+
+  </body>
+</html>
